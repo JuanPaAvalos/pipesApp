@@ -1,0 +1,28 @@
+<div class="text-layout">
+    <h1>Deicmal Pipe y Porcentaje</h1>
+    <p>Pipes incluidos en el Common Module.</p>
+</div>
+
+<div class="grid">
+    <div class="col-12 md:col-4">
+        <p-card header="Ventas Netas" [subheader]="'de este año'">
+
+            <i class="pi pi-dollar"></i>
+            {{ ventasNetas | number:'4.2-4':'en'}}
+        </p-card>
+    </div>
+
+    <div class="col-12 md:col-4">
+        <p-card header="Ventas Brutas" [subheader]="'de este año'">
+
+            {{ ventasNetas | currency:'CAD':'symbol':'4.2-2':'fr'}}
+        </p-card>
+    </div>
+
+    <div class="col-12 md:col-4">
+        <p-card header="Ganancia %" [subheader]="'de este año'">
+
+            {{ porcentaje | percent: '1.2-2'}}
+        </p-card>
+    </div>
+</div>

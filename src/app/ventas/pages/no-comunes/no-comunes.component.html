@@ -1,0 +1,44 @@
+<div class="text-layout">
+    <h1>Pipes Poco Comunes</h1>
+    <p>Pipes incluidos en el Common Module.</p>
+</div>
+
+<div class="grid">
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+
+            <!-- Saludos a {{personas[0].nombre}}, esta usted {{personas[0].genero | i18nSelect:invitacionMap }} a el
+            evento de desarrollo.
+            <hr>
+            Saludos a {{personas[1].nombre}}, esta usted {{personas[1].genero | i18nSelect:invitacionMap }} a el
+            evento de desarrollo. -->
+
+           <p>
+            Saludos a {{persona.nombre}}, esta usted {{persona.genero | i18nSelect:invitacionMap }} a el
+            evento de desarrollo.
+           </p>
+
+            <button pButton type="button" label="Click" (click)="cambiarGenero()"></button>
+        </p-fieldset>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+
+            <p-button label="Borrar cliente" class="p-button-warning" [disabled]="clientes.length <= 0" (onClick)="deleteClient()" icon="pi pi-minus"></p-button>
+           
+
+            <p>Actualmente tenemos {{clientNumber | i18nPlural : clientesMap }}</p>
+
+            <ul>
+                <li *ngFor="let cliente of clientes">{{cliente}}</li>
+            </ul>
+    
+            <!-- <p-button label="Click" [disabled]="clientNumber <= 0" (onClick)="restClient()" icon="pi pi-minus"></p-button>
+            <p-button label="Click" (onClick)="sumClient()" icon="pi pi-plus"></p-button> -->
+    
+           
+        </p-fieldset>
+
+       
+    </div>
+</div>
