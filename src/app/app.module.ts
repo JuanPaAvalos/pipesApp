@@ -12,13 +12,16 @@ import { AppRoutingModule } from './app-routing.module';1
 import { SharedModule } from './shared/shared.module';
 import { VentasModule } from './ventas/ventas.module';
 
-//change locale 
+//change locale
   import localeEs from '@angular/common/locales/es';
   import localeFr from '@angular/common/locales/fr';
   import { registerLocaleData } from '@angular/common';
-  registerLocaleData( localeEs ); 
+
+
+  //configuracion del locale
+  registerLocaleData( localeEs );
   registerLocaleData( localeFr );
-  
+
 
 @NgModule({
   declarations: [
