@@ -24,7 +24,7 @@ const routes: Routes = [
     component: NoComunesComponent,
   },
   {
-    path: 'ordenar',
+    path: 'perzonalizados',
     component: OrdenarComponent,
   },
   {
