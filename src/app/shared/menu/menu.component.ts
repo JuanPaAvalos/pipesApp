@@ -40,9 +40,9 @@ export class MenuComponent implements OnInit {
                 icon: 'pi pi-cog',
                 items: [
                     {
-                        label: 'Textos y Fechas',
+                        label: 'Custom Pipes',
                         icon: 'pi pi-box',
-                        routerLink: 'ordenar'
+                        routerLink: 'perzonalizados'
                     },
                 ]
             },
