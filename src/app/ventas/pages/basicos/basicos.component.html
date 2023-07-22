@@ -30,37 +30,37 @@
 <div class="grid">
     <div class="col-12 md:col-6">
         <p-card header="uppercase" [subheader]="nombrelower">
-            <ul>
+            <ol>
                 <li>Fecha</li>
                 <li>Fecha | date </li>
                 <li>fecha | date:'short' </li>
                 <li>fecha | date:'long'</li>
                 <li>fecha | date:'EEEE, dd MM/YYYY, h a'</li>
-            </ul>
+            </ol>
 
             <hr>
-            <ul>
+            <ol>
                 <li>fecha | date:'long':'GMT-3'</li>
                 <li>fecha | date:'long':'GMT-8'</li>
-                <li>fecha | date:'long':'': 'fr '</li>
-            </ul>
+                <li>fecha | date:'long':'': 'fr'</li>
+            </ol>
         </p-card>
     </div>
     <div class="col-12 md:col-6">
         <p-card header="Uppercase" [subheader]="nombreUpper">
-            <ul>
+            <ol>
                 <li>{{fecha}}</li>
                 <li>{{fecha | date}}</li>
                 <li>{{fecha | date:'short' }}</li>
                 <li>{{fecha | date:'long' }}</li>
                 <li>{{fecha | date:'EEEE, d/MMMM/YYYY, h a'}}</li>
-            </ul>
+            </ol>
             <hr>
-            <ul>
+            <ol>
                 <li>{{fecha | date:'long':'GMT-3'}}</li>
                 <li>{{fecha | date:'long':'GMT-8'}}</li>
-                <li>{{fecha | date:'long':'': 'fr '}}</li>
-            </ul>
+                <li>{{fecha | date:'long':'': 'fr'}}</li>
+            </ol>
         </p-card>
     </div>
 
