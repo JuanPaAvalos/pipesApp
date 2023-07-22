@@ -1,44 +1,84 @@
 <div class="text-layout">
-    <h1>Pipes Poco Comunes</h1>
-    <p>Pipes incluidos en el Common Module.</p>
+  <h1>Pipes Poco Comunes</h1>
+  <p>Pipes incluidos en el Common Module.</p>
 </div>
 
 <div class="grid">
-    <div class="col-12 md:col-6">
-        <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+      <p>
+        Saludos a {{ persona.nombre }}, esta usted
+        {{ persona.genero | i18nSelect : invitacionMap }} al evento de
+        desarrollo.
+      </p>
+      <button
+        pButton
+        type="button"
+        label="Click"
+        (click)="cambiarGenero()"
+      ></button>
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+      <p-button
+        label="Borrar cliente"
+        class="p-button-warning"
+        [disabled]="clientes.length <= 0"
+        (onClick)="deleteClient()"
+        icon="pi pi-minus"
+      ></p-button>
+      <p>Actualmente tenemos {{ clientNumber | i18nPlural : clientesMap }}</p>
+      <ul>
+        <li *ngFor="let cliente of clientes">{{ cliente }}</li>
+      </ul>
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Slice Pipe" [toggleable]="true">
+      <b>Original</b>
+      <pre>{{ clientesSlice }}</pre>
 
-            <!-- Saludos a {{personas[0].nombre}}, esta usted {{personas[0].genero | i18nSelect:invitacionMap }} a el
-            evento de desarrollo.
-            <hr>
-            Saludos a {{personas[1].nombre}}, esta usted {{personas[1].genero | i18nSelect:invitacionMap }} a el
-            evento de desarrollo. -->
+      <b>Slice 0:2</b>
+      <pre>{{ clientesSlice | slice : 0 : 2 }}</pre>
 
-           <p>
-            Saludos a {{persona.nombre}}, esta usted {{persona.genero | i18nSelect:invitacionMap }} a el
-            evento de desarrollo.
-           </p>
+      <b>slice:1:2</b>
+      <pre>{{ clientesSlice | slice : 1 : 2 }}</pre>
 
-            <button pButton type="button" label="Click" (click)="cambiarGenero()"></button>
-        </p-fieldset>
-    </div>
-    <div class="col-12 md:col-6">
-        <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+      <b>slice:1:3</b>
+      <pre>{{ clientesSlice | slice : 1 : 3 }}</pre>
 
-            <p-button label="Borrar cliente" class="p-button-warning" [disabled]="clientes.length <= 0" (onClick)="deleteClient()" icon="pi pi-minus"></p-button>
-           
+      <b>slice:0:-1 </b>
+      <pre>{{ clientesSlice | slice : 0 : -1 }}</pre>
 
-            <p>Actualmente tenemos {{clientNumber | i18nPlural : clientesMap }}</p>
+      <b>slice:0:-2 </b>
+      <pre>{{ clientesSlice | slice : 0 : -2 }}</pre>
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Json Pipe" [toggleable]="true">
+      <pre>{{ persona | json }}</pre>
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+      <ul>
+        <!-- * Obtiene un objetito y practicamente lo desestructura en conjuntos de llave y valor -->
+        <li *ngFor="let item of persona | keyvalue">
+          <b> {{ item.key | titlecase }} : </b> {{ item.value }}
+        </li>
+      </ul>
+    </p-fieldset>
+  </div>
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Async Pipe" [toggleable]="true">
+      <b>Obdervable - permite cancelar las subscripcion</b>
+      <pre *ngIf="!(myObservable | async)">Resolviendo Observable</pre>
+      <pre>{{ myObservable | async }}</pre>
 
-            <ul>
-                <li *ngFor="let cliente of clientes">{{cliente}}</li>
-            </ul>
-    
-            <!-- <p-button label="Click" [disabled]="clientNumber <= 0" (onClick)="restClient()" icon="pi pi-minus"></p-button>
-            <p-button label="Click" (onClick)="sumClient()" icon="pi pi-plus"></p-button> -->
-    
-           
-        </p-fieldset>
-
-       
-    </div>
+      <b>Promesa - NO permite cancelar las subscripcion</b>
+      <pre *ngIf="!(myObservable | async)">Resolviendo Observable</pre>
+      <pre>{{ myObservable | async }}</pre>
+    </p-fieldset>
+  </div>
 </div>

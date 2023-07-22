@@ -1,72 +1,100 @@
 import { Component, OnInit } from '@angular/core';
+import { interval, tap } from 'rxjs';
 
 @Component({
   selector: 'app-no-comunes',
   templateUrl: './no-comunes.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class NoComunesComponent implements OnInit {
-
-
   //*i18nSelect
-  // public personas = [
-  //   {
-  //    nombre : "Juan Avalos",
-  //    genero : "H",
-  //   },
-  //   {
-  //      nombre : "Mariana",
-  //      genero : "M",
-  //   }
-  // ]
+  public hombre = {
+    nombre: 'Juan',
+    genero: 'H',
+    edad: 22,
+    direccion: "Calle 71 Region 81"
+  };
 
-  public persona = {
-    nombre: "Juan",
-    genero: "H"
+  public Mujer = {
+    nombre: 'Katherine',
+    genero: 'M',
+    edad: 22,
+    direccion: "Calle 99 Region 11"
+
+  };
+
+  public persona = this.hombre;
+
+  cambiarGenero() {
+    if (this.persona == this.hombre) {
+      this.persona = this.Mujer;
+    } else {
+      this.persona = this.hombre;
+    }
   }
 
-  cambiarGenero(){
-    this.persona.nombre = "Katherine";
-    this.persona.genero = "M";
-  }
-
-  
   invitacionMap = {
-    'H':'invitado',
-    'M': 'invitada',
-  }
+    H: 'invitado',
+    M: 'invitada',
+  };
 
   //*i18nPlural
-  clientes : string[] = ['Maria','Jorge','Saul','Alexis','Katherine','Erick','Issac',]
+  clientes: string[] = [
+    'Maria',
+    'Jorge',
+    'Saul',
+    'Alexis',
+    'Katherine',
+    'Erick',
+    'Issac',
+  ];
   clientNumber: number = this.clientes.length;
 
-  clientesMap= {
+  clientesMap = {
     '=0': 'no tenemos ningun cliente esperando.',
     '=1': 'tenemos un cliente esperando.',
-    'other': 'tenemos # clientes esperando.',
-  }
+    other: 'tenemos # clientes esperando.',
+  };
 
-  deleteClient(){
+  deleteClient() {
     this.clientes.pop();
-    console.log("clientNumber ", this.clientNumber);
-    console.log("clientes ", this.clientes);
+    console.log('clientNumber ', this.clientNumber);
+    console.log('clientes ', this.clientes);
     this.clientNumber = this.clientes.length;
   }
 
-  sumClient(){
-    this.clientNumber += 1 ;
+  sumClient() {
+    this.clientNumber += 1;
   }
 
-  restClient(){
-    this.clientNumber -= 1 ;
+  restClient() {
+    this.clientNumber -= 1;
   }
 
- 
+  //*slices
+  clientesSlice: string[] = [
+    'Maria',
+    'Jorge',
+    'Saul',
+    'Alexis',
+    'Katherine',
+    'Erick',
+    'Issac',
+  ];
 
-  constructor() { }
+    //*async
+    public myObservable = interval(2000).pipe(
+      tap( valor => console.log("tap:", valor)
+      )
+    );
 
-  ngOnInit(): void {
-  }
+    public promiseValue: Promise<string> = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('Data en la Promesa')
+      }, 2000);
+    })
 
+  constructor() {}
+
+  ngOnInit(): void {}
 }
