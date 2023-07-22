@@ -6,6 +6,7 @@ import { BasicosComponent } from './pages/basicos/basicos.component';
 import { OrdenarComponent } from './pages/ordenar/ordenar.component';
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
 import { ToggleCasePipe } from './pipes/toggle-case.pipe';
+import { CanFlyPipe } from './pipes/can-fly.pipe';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { ToggleCasePipe } from './pipes/toggle-case.pipe';
     OrdenarComponent,
     //Toggle Case
     ToggleCasePipe,
+    CanFlyPipe,
   ],
   imports: [
     CommonModule,
