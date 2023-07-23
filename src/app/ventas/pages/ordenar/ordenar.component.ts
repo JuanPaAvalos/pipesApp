@@ -4,39 +4,40 @@ import { Color, Hero } from '../../interfaces/hero.interface';
 @Component({
   selector: 'app-ordenar',
   templateUrl: './ordenar.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class OrdenarComponent implements OnInit {
-
-  public isUpperCase: boolean = false
+  public isUpperCase: boolean = false;
+  public orderValue: keyof Hero | '' = '';
 
   public heroes: Hero[] = [
     {
       name: 'Superman',
       canFly: true,
-      color: Color.red
+      color: Color.red,
     },
     {
       name: 'Batman',
       canFly: false,
-      color: Color.black
+      color: Color.black,
     },
     {
       name: 'Green Lantern',
       canFly: true,
-      color: Color.green
+      color: Color.green,
     },
     {
       name: 'Flash',
       canFly: false,
-      color: Color.red
+      color: Color.red,
     },
-  ]
+  ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  sortBy(sortValue: keyof Hero) {
+    this.orderValue = sortValue;
   }
-
 }
