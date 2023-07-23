@@ -7,6 +7,7 @@ import { OrdenarComponent } from './pages/ordenar/ordenar.component';
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
 import { ToggleCasePipe } from './pipes/toggle-case.pipe';
 import { CanFlyPipe } from './pipes/can-fly.pipe';
+import { SortByPipe } from './pipes/sort-by.pipe';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { CanFlyPipe } from './pipes/can-fly.pipe';
     //Toggle Case
     ToggleCasePipe,
     CanFlyPipe,
+    SortByPipe,
   ],
   imports: [
     CommonModule,
