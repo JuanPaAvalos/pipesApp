@@ -5,13 +5,15 @@
 </p-card>
 
 <p-toolbar>
-  <div class="p-toolbar-group-end">
+  <div class="p-toolbar-group-start">
     <p-button
       label="ToggleCase"
       icon="pi pi-calendar"
       styleClass="p-button-success mr-2"
       (onClick)="isUpperCase = !isUpperCase"
     ></p-button>
+  </div>
+  <div class="p-toolbar-group-end">
     <p-button
       label="Por nombre"
       icon="pi pi-sort"
@@ -50,5 +52,6 @@
         </ng-template>
       </p-table>
     </div>
+
   </div>
 </div>
